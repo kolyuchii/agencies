@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #f9f9f9;
+  padding: 20px;
+  font-family: Roboto, sans-serif;
+}
+  .app {
+    max-width: 600px;
+    min-width: 320px;
+    margin: 20px auto;
+  }
+    .title {
+      font-size: calc(10px + 4vmin);
+      margin-bottom: 4vmin;
+    }
+    .block {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4vmin;
+      font-size: calc(10px + 2vmin);
+    }
+      .input {
+        width: 50%;
+        font-size: calc(10px + 2vmin);
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #ddd;
+      }
+    .button {
+      padding: 10px 20px;
+      font-size: calc(10px + 1vmin);
+      margin-bottom: 4vmin;
+
+      border: 1px solid #e1e1e1;
+      border-radius: 5px;
+      background-color: #ececec;
+    }
+    .error {
+      color: #dd0010;
+      display: block;
+      margin-bottom: 4vmin;
+      font-size: calc(10px + 1vmin);
+    }
