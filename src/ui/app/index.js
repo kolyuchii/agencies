@@ -1,14 +1,15 @@
 import './App.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function App(props) {
+function AppComponent(props) {
     const {
         onPriceChanged,
         onPeriodChanged,
         unitChanged,
         units,
         calculate,
-        error,
+        errors,
         fee,
     } = props;
     return (
@@ -35,10 +36,21 @@ function App(props) {
 
             <button className="button" onClick={calculate}>Calculate Fee</button>
 
-            <b className="error">{ error }</b>
+            { errors }
 
             { fee ? (<h1 className="fee">Membership fee: £{ fee }</h1>) : null }
         </div>
     );
 }
-export default App;
+
+AppComponent.propTypes = {
+    onPriceChanged: PropTypes.func,
+    onPeriodChanged: PropTypes.func,
+    unitChanged: PropTypes.func,
+    units: PropTypes.array,
+    calculate: PropTypes.func,
+    errors: PropTypes.array,
+    fee: PropTypes.number,
+};
+
+export default AppComponent;

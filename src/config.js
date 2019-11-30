@@ -41,7 +41,7 @@ export const CONFIG = [
 ];
 
 // unit structure
-export const model = {
+export const MODEL = {
     client: ['division_a', 'division_b'],
     division_a: ['area_a', 'area_b'],
     division_b: ['area_c', 'area_d'],
@@ -50,28 +50,3 @@ export const model = {
     area_c: ['branch_i', 'branch_j', 'branch_k', 'branch_l'],
     area_d: ['branch_m', 'branch_n', 'branch_o', 'branch_p'],
 };
-
-/**
- * Returns proper fixed_membership_fee_amount or 0
- * @param {string} organisationUnit
- * @returns {number}
- */
-export function findParentUnit(organisationUnit) {
-    if (!organisationUnit) {
-        return 0;
-    }
-    const unit = CONFIG.find(item => item.name === organisationUnit);
-    if (unit && unit.config) {
-        if (organisationUnit === 'client' || unit.config.has_fixed_membership_fee) {
-            return unit.config.fixed_membership_fee_amount;
-        }
-    } else {
-        return 0;
-    }
-    for (const key in model) {
-        const parentUnit = model[key].indexOf(organisationUnit);
-        if (parentUnit > -1) {
-            return findParentUnit(key);
-        }
-    }
-}
